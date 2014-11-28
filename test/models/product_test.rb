@@ -28,7 +28,7 @@ class ProductTest < ActiveSupport::TestCase
   end
 
   def new_product(image_url)
-    Product.new(title: "测试101",
+    Product.new(title: "24234234测试101",
                description: "描述12313",
                price: 10.12,
                image_url: image_url)
@@ -46,12 +46,17 @@ class ProductTest < ActiveSupport::TestCase
       assert new_product(name).invalid?, "#{name} should be invlid"
     end
   end
-
   test "product is not valid without a unique title" do 
     product = Product.new(title: products(:ruby).title,
                           description: "yyy", price: 1, image_url: "fred.gif")
     assert product.invalid?
     assert_equal ["has already been taken"], product.errors[:title] 
+  end
+
+  test "product title must more 10 charactors" do
+    product = products(:ruby)
+    product.title = "12"
+    assert product.invalid?
   end
 
 end 
