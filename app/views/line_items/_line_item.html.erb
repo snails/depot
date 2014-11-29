@@ -1,0 +1,14 @@
+<% if line_item == @current_item %>
+ <tr id="current_item">
+<% else %>
+ <tr>
+<% end %>
+   <td><%= line_item.quatity %>&times;</td>
+    <td><%= line_item.product.title %></td>
+    <td class="line_item_price"><%= number_to_currency(line_item.total_price, unit: '￥') %></td>
+    <!--
+    <td><%= button_to "Inc", line_items_path(product_id: line_item.product_id) %></td>
+    <td><%= button_to "Dec", line_item_path(id: line_item.id, product_id: line_item.product_id), method: :patch %></td>
+    <td><%= button_to "Remove", line_item_path(id: line_item.id), method: :delete %></td>
+    -->
+</tr>

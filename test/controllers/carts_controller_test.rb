@@ -45,6 +45,6 @@ class CartsControllerTest < ActionController::TestCase
       delete :destroy, id: @cart
     end
 
-    assert_redirected_to carts_url
+    assert_redirected_to store_url
   end
 end
